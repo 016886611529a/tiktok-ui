@@ -9,7 +9,7 @@ import styles from './Header.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
-
+import Button from '~/components/Button';
 const cx = classNames.bind(styles);
 function Header() {
     const [searchResults, setSearchResult] = useState([]);
@@ -51,7 +51,12 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('actions')}></div>
+                <div className={cx('actions')}>
+                    <Button text>Tải lên</Button>
+                    <Button primary disabled>
+                        Đăng nhập
+                    </Button>
+                </div>
             </div>
         </header>
     );
