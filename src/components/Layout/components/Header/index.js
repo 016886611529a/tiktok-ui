@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faMagnifyingGlass, faSignIn, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 import styles from './Header.module.scss';
@@ -53,9 +53,7 @@ function Header() {
                 </Tippy>
                 <div className={cx('actions')}>
                     <Button text>Tải lên</Button>
-                    <Button primary disabled>
-                        Đăng nhập
-                    </Button>
+                    <Button primary>Đăng nhập</Button>
                 </div>
             </div>
         </header>

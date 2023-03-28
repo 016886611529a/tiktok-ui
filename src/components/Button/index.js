@@ -9,10 +9,14 @@ function Button({
     primary = false,
     outline = false,
     text = false,
+    rounded = false,
     disabled = false,
     small = 'fales',
     large = 'false',
     children,
+    className,
+    lefticon,
+    righticon,
     onClick,
     ...passProps
 }) {
@@ -21,6 +25,9 @@ function Button({
         onClick,
         ...passProps,
     };
+    if (disabled) {
+        delete props.disabled;
+    }
     if (to) {
         props.to = to;
         Comp = Link;
@@ -28,10 +35,12 @@ function Button({
         props.href = href;
         Comp = 'a';
     }
-    const classes = cx('wrapper', { primary, outline, small, large, text, disabled });
+    const classes = cx('wrapper', { [className]: className, primary, outline, small, large, text, disabled, rounded });
     return (
         <Comp className={classes} {...props}>
-            <span>{children}</span>
+            {lefticon && <span className={cx('icon')}>{lefticon}</span>}
+            <span className={cx('title')}>{children}</span>
+            {righticon && <span className={cx('icon')}>{righticon}</span>}
         </Comp>
     );
 }
