@@ -9,8 +9,8 @@
     width: 100%;
     height: 100%;
     max-width: var(--default-layout-width);
-    padding-right: 24px;
-    padding-left: 20px;
+    padding-right: var(--default-layout-horizontal-space);
+    padding-left: var(--default-layout-horizontal-space);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -100,4 +100,5 @@
     margin-left: 20px;
     padding: 4px 8px;
     background: transparent;
+    cursor: pointer;
 }
