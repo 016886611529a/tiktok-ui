@@ -95,10 +95,30 @@
 .custom-login {
     color: var(--primary);
 }
+.actions {
+    display: flex;
+    align-items: center;
+}
+.action-btn {
+    padding: 4px 12px;
+    color: #161823;
+    font-size: 22px;
+    background-color: transparent;
+    cursor: pointer;
+}
+.user-avatar {
+    cursor: pointer;
+    margin-left: 12px;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .more-btn {
     font-size: 20px;
     margin-left: 20px;
     padding: 4px 8px;
-    background: transparent;
+    background-color: transparent;
     cursor: pointer;
 }
