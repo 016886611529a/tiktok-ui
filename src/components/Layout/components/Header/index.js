@@ -29,6 +29,8 @@ import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
     {
@@ -140,7 +142,7 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Tải lên video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -152,9 +154,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? useMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
-                                src="https://p9-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/7052091919140126746.jpeg?x-expires=1680699600&x-signature=N77NtBFfeYj2x2lH7b2%2FnDfO29Q%3D"
+                                src="ttps://p9-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/7052091919140126746.jpeg?x-expires=1680699600&x-signature=N77NtBFfeYj2x2lH7b2%2FnDfO29Q%3D"
+                                alt="long"
+                                fallback="https://scontent.fdad3-4.fna.fbcdn.net/v/t39.30808-1/279612894_163369869469463_6666096359864920987_n.jpg?stp=cp0_dst-jpg_p50x50&_nc_cat=105&ccb=1-7&_nc_sid=05dcb7&_nc_ohc=L5jaL17vUzMAX_25YsU&_nc_ht=scontent.fdad3-4.fna&oh=00_AfBqbg520KMQ0m2ojn1TqYgWEOVUNWlgORMpgXiRzmnYHQ&oe=6430EA1C"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
