@@ -38,11 +38,23 @@
 }
 .clear,
 .loading {
+    padding-right: 10px;
     position: absolute;
     right: 50px;
     top: 50%;
     transform: translateY(-50%);
     color: rgba(22, 24, 35, 0.35);
+}
+.loading {
+    animation: spinner 1s linear infinite;
+}
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
 }
 
 .search-btn {
