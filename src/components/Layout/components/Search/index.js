@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import HeadlessTippy from '@tippyjs/react/headless';
@@ -7,6 +8,9 @@ import { SearchIcon } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
+import { useDebounce } from '~/hooks';
+import request from '~/utils/request';
+import * as searchServices from '~/apiServices/searchServices';
 
 const cx = classNames.bind(styles);
 function Search() {
@@ -15,26 +19,61 @@ function Search() {
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
 
+    const debounced = useDebounce(searchValue, 1000);
     const inputRef = useRef();
     useEffect(() => {
         //đáng lẻ phải có .trim() để q= value k được rỗng khi bên Back end not null
-        if (!searchValue) {
+        if (!debounced) {
             setSearchResult([]);
             return;
         }
 
         setLoading(true);
 
-        fetch(`http://localhost:3000/${encodeURIComponent(searchValue)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res);
+        // 1 . Dùng fetch để call Api
+        //     fetch(`http://localhost:3000/${encodeURIComponent(debounced)}`)
+        //         .then((res) => res.json())
+        //         .then((res) => {
+        //             setSearchResult(res);
+        //             setLoading(false);
+        //         })
+        //         .catch(() => {
+        //             setLoading(false);
+        //         });
+        // }, [debounced]);
+
+        //2. Dùng Axios để call api
+        //     request
+        //         .get(`${encodeURIComponent(debounced)}`)
+        //         .then((res) => {
+        //             setSearchResult(res.data);
+        //             setLoading(false);
+        //         })
+        //         .catch(() => {
+        //             setLoading(false);
+        //         });
+        // }, [debounced]);
+
+        //3.dùng async/await để call api
+        const fetchApi = async () => {
+            try {
+                const res = await request.get(`${encodeURIComponent(debounced)}`);
+                setSearchResult(res.data);
                 setLoading(false);
-            })
-            .catch(() => {
+            } catch (error) {
                 setLoading(false);
-            });
-    }, [searchValue]);
+            }
+        };
+        fetchApi();
+        // const fetchApi = async () => {
+        //     setLoading(true);
+        //     const result = await searchServices.search(debounced);
+        //     setSearchResult(result);
+        //     setLoading(false);
+        // };
+        // fetchApi();
+    }, [debounced]);
+
     const handleClear = () => {
         setSearchValue('');
         setSearchResult([]);
