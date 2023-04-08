@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
@@ -25,6 +26,8 @@ import 'tippy.js/dist/tippy.css';
 import { UploadIcon, MessageIcon, InboxIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import routesConfig from '~/config/routes';
+
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
     {
@@ -96,7 +99,9 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="tiktok"></img>
+                    <Link to={routesConfig.home} className={cx('logo-link')}>
+                        <img src={images.logo} alt="tiktok"></img>
+                    </Link>
                 </div>
                 <Search />
                 <div className={cx('actions')}>
@@ -128,9 +133,9 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://p9-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/7052091919140126746.jpeg?x-expires=1680699600&x-signature=N77NtBFfeYj2x2lH7b2%2FnDfO29Q%3D"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDuzVGc5hzF7zohE3Pygd4g6OOpbQaMP9J-w&usqp=CAU"
                                 alt="long"
-                                fallback="https://scontent.fdad3-4.fna.fbcdn.net/v/t39.30808-1/279612894_163369869469463_6666096359864920987_n.jpg?stp=cp0_dst-jpg_p50x50&_nc_cat=105&ccb=1-7&_nc_sid=05dcb7&_nc_ohc=L5jaL17vUzMAX_25YsU&_nc_ht=scontent.fdad3-4.fna&oh=00_AfBqbg520KMQ0m2ojn1TqYgWEOVUNWlgORMpgXiRzmnYHQ&oe=6430EA1C"
+                                fallback="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDuzVGc5hzF7zohE3Pygd4g6OOpbQaMP9J-w&usqp=CAU"
                             />
                         ) : (
                             <button className={cx('more-btn')}>

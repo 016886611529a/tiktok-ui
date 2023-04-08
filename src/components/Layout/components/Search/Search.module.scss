@@ -27,6 +27,7 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 22px;
+        font-family: var(--font-family);
         background-color: transparent;
     }
     input:not(:placeholder-shown) ~ .search-btn {

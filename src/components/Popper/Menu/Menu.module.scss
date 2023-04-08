@@ -18,11 +18,14 @@
         background-color: rgba(22, 24, 35, 0.03);
     }
 }
-
+.menu-body {
+    overflow-y: auto;
+}
 .header {
     margin-top: -8px;
     position: relative;
     height: 50px;
+    flex-shrink: 0;
 }
 .back-btn {
     width: 50px;
