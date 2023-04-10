@@ -6,7 +6,8 @@ import styles from './AccountPreview.module.scss';
 import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
-function AccountPreview() {
+function AccountPreview({ props }) {
+    console.log(props);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>

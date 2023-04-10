@@ -42,9 +42,9 @@ function Search() {
         //         });
         // }, [debounced]);
 
-        //2. Dùng Axios để call api
-        //     request
-        //         .get(`${encodeURIComponent(debounced)}`)
+        // 2. Dùng Axios để call api
+
+        //         axios.get(`${encodeURIComponent(debounced)}`)
         //         .then((res) => {
         //             setSearchResult(res.data);
         //             setLoading(false);
