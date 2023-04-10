@@ -29,6 +29,7 @@
         line-height: 22px;
         font-family: var(--font-family);
         background-color: transparent;
+        padding-right: 30px;
     }
     input:not(:placeholder-shown) ~ .search-btn {
         background-color: rgba(22, 24, 35, 0.03);
@@ -39,7 +40,8 @@
 }
 .clear,
 .loading {
-    padding-right: 10px;
+    background-color: transparent;
+    padding-right: 13px;
     position: absolute;
     right: 50px;
     top: 50%;
@@ -74,7 +76,7 @@
         color: #4d4f57;
     }
     &::before {
-        margin: 16px -12px;
+        margin: 8px -17px;
         top: 0;
         content: '';
         position: absolute;
