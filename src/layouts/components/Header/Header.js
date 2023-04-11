@@ -107,17 +107,17 @@ function Header() {
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Tippy delay={[0, 200]} content="Tải lên video" placement="bottom">
+                            <Tippy delay={[0, 100]} content="Tải lên video" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <UploadIcon />
                                 </button>
                             </Tippy>
-                            <Tippy delay={[0, 200]} content="Tải lên video" placement="bottom">
+                            <Tippy delay={[0, 100]} content="Tin nhắn" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <MessageIcon />
                                 </button>
                             </Tippy>
-                            <Tippy delay={[0, 200]} content="Tải lên video" placement="bottom">
+                            <Tippy delay={[0, 100]} content="Hộp thư" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <InboxIcon />
                                 </button>
